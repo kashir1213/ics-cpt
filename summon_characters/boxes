@@ -11,6 +11,7 @@ pygame.display.set_caption("My Animation")
 class boxes:
     def __init__(self):
         self.x = 0
+        self.y = 0
 
 
 # Loop until the user clicks the close button.
