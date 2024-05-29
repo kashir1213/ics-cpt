@@ -2,6 +2,7 @@
 # Kevin Tuiza
 
 import pygame
+import random
 
 pygame.init()
 size = (800,600)
@@ -10,7 +11,7 @@ pygame.display.set_caption("My Animation")
 
 class boxes:
     def __init__(self):
-        self.x = 0
+        self.x = random.randint(0,700)
         self.y = 0
     
     def drawBox(self,screen):
@@ -41,8 +42,11 @@ GREY = (96,96,96)
 YELLOW = (255,255,0)
 DARKGREEN = (0,51,0)
 
-        
+theboxes = boxes
 
+theboxes.drawBox(screen)
+    
+done = False
 ## Main Program Loop
 while not done:
     ## CONTROL
@@ -51,11 +55,7 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-    theboxes = boxes
-
-    theboxes.drawBox(screen)
-    
-
+    screen.fill(BLACK)
 
         
     # Update Screen
