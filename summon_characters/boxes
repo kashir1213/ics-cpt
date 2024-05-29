@@ -12,7 +12,7 @@ pygame.display.set_caption("My Animation")
 class boxes:
     def __init__(self):
         self.x = 0
-        self.y = 0
+        self.y = 500
     
     def drawBox(self):
         pygame.draw.rect(screen,BROWN,[self.x,self.y,50,50])
