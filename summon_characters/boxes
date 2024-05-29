@@ -46,7 +46,7 @@ theboxes = boxes
 
 theboxes.drawBox(screen)
     
-done = False
+
 ## Main Program Loop
 while not done:
     ## CONTROL
