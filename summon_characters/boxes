@@ -51,7 +51,9 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
+    theboxes = boxes
 
+    theboxes.drawBox(screen)
     
 
 
