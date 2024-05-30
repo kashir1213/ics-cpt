@@ -1,6 +1,6 @@
 import pygame
 
-# Player created just to test
+# Player created just to test(imported from my lab file)
 class character:
 
     def __init__(self):
