@@ -9,6 +9,7 @@ size = (800,600)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("My Animation")
 
+# Items to keep player alive
 class boxes:
     def __init__(self):
         self.x = random.randint(0,100)
