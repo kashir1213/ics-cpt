@@ -1,8 +1,12 @@
 import pygame
 
+# Initialize Pygame
 pygame.init()
-size = (800,600)
+
+# Set up the drawing window
+size = (800, 600)
 screen = pygame.display.set_mode(size)
+surface = pygame.Surface((800, 600), pygame.SRCALPHA)
 pygame.display.set_caption("My Animation")
 
 # Loop until the user clicks the close button.
@@ -10,39 +14,50 @@ done = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
-# Update Screen
-pygame.display.flip()
-clock.tick(60)
 
-# Colours
+# Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
-BROWN = (153,76,0)
-GREY = (96,96,96)
-YELLOW = (255,255,0)
-DARKGREEN = (0,51,0)
+BROWN = (153, 76, 0)
+GREY = (96, 96, 96)
+YELLOW = (255, 255, 0)
+DARKGREEN = (0, 51, 0)
 
-        
-
-## Main Program Loop
+# Main Program Loop
 while not done:
-    ## CONTROL
-    # Check for events
+    # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
 
+    # Fill the screen with a semi-transparent brown color
+    screen.fill((153, 76, 0, 70))
+    screen.blit(surface, (0,0))
 
-    screen.fill(BLACK)
+    # Draw a brown rectangle (ground)
+    pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 
-        
-    # Update Screen
+    # Update the display
     pygame.display.flip()
+
+    # Limit frames per second
     clock.tick(60)
-    # Close the window and quit
-    pygame.quit()
+
+# Quit Pygame
+pygame.quit()
 
 
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((600,400))
+screen.fill((255,255,255))
+surface = pygame.Surface((600,400), pygame.SRCALPHA)
+surface.fill((255,0,0,50))
+screen.blit(surface, (0,0))
+pygame.display.flip()
+while pygame.event.wait().type != pygame.QUIT:
+    pass
+pygame.quit()
