@@ -24,7 +24,7 @@ player = character()
 pygame.init()
 size = (800,600)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("My Animation")
+
 
 # Loop until the user clicks the close button.
 done = False
@@ -45,7 +45,7 @@ BROWN = (153,76,0)
 GREY = (96,96,96)
 YELLOW = (255,255,0)
 DARKGREEN = (0,51,0)
-
+ORANGE = (255,128,0)
         
 
 ## Main Program Loop
@@ -60,6 +60,8 @@ while not done:
                 player.x -= player.speed
             elif event.key == pygame.K_d:
                 player.x += player.speed
+            elif event.key == pygame.K_e:
+                print('')
 
 
     screen.fill(BLACK)
