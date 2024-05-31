@@ -1,5 +1,9 @@
 import pygame
 import random
+import sys
+
+
+import asteroids
 # Initialize Pygame
 pygame.init()
 
