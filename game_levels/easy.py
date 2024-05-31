@@ -46,13 +46,6 @@ while not done:
     # # Fill the screen with black
     # screen.fill((0xff, 0xff, 0xff))
 
-    # # Blit the semi-transparent overlay
-    # screen.blit(overlay, (0, 0))
-
-    # # Draw a black rectangle (ground)
-    # #x.draw(asteroidImage)
-    # pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
-
 
     #moving background
     screen.fill((0,0,0))
