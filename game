@@ -6,8 +6,12 @@ pygame.init()
 # Set up the drawing window
 size = (800, 600)
 screen = pygame.display.set_mode(size)
-surface = pygame.Surface((800, 600), pygame.SRCALPHA)
+
 pygame.display.set_caption("My Animation")
+
+# Create a surface with per-pixel alpha
+overlay = pygame.Surface((800, 600), pygame.SRCALPHA)
+overlay.fill((153, 76, 0, 50))  # RGBA color
 
 # Loop until the user clicks the close button.
 done = False
@@ -33,11 +37,13 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-    # Fill the screen with a semi-transparent brown color
-    screen.fill((153, 76, 0, 70))
-    screen.blit(surface, (0,0))
+    # Fill the screen with black
+    screen.fill((0, 0, 0))
 
-    # Draw a brown rectangle (ground)
+    # Blit the semi-transparent overlay
+    screen.blit(overlay, (0, 0))
+
+    # Draw a black rectangle (ground)
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 
     # Update the display
@@ -50,14 +56,3 @@ while not done:
 pygame.quit()
 
 
-import pygame
-pygame.init()
-screen = pygame.display.set_mode((600,400))
-screen.fill((255,255,255))
-surface = pygame.Surface((600,400), pygame.SRCALPHA)
-surface.fill((255,0,0,50))
-screen.blit(surface, (0,0))
-pygame.display.flip()
-while pygame.event.wait().type != pygame.QUIT:
-    pass
-pygame.quit()

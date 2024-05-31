@@ -11,7 +11,7 @@ screen = pygame.display.set_mode(size)
 
 asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
 
-class makeAsteroid():
+class asteroid():
     def __init__(self):
         self.width = random.randint(100, 500)
         self.height = random.randint(100, 500)
@@ -27,7 +27,7 @@ pygame.init()
  
 # Set the width and height of the screen [width, height]
 
-x = makeAsteroid()
+x = asteroid()
  
 pygame.display.set_caption("My Game")
  
