@@ -2,6 +2,9 @@ import pygame
 
 # Initialize Pygame
 pygame.init()
+from summon_characters import *
+
+asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
 
 # Set up the drawing window
 size = (800, 600)
@@ -30,6 +33,7 @@ GREY = (96, 96, 96)
 YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
+x = asteroids.makeAsteroid()
 # Main Program Loop
 while not done:
     # Event handling
@@ -43,6 +47,7 @@ while not done:
     # Blit the semi-transparent overlay
     screen.blit(overlay, (0, 0))
 
+    x.draw(asteroidImage)
     # Draw a black rectangle (ground)
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 

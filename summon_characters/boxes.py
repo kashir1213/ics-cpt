@@ -49,22 +49,22 @@ DARKGREEN = (0,51,0)
     
 
 ## Main Program Loop
-while not done:
-    ## CONTROL
-    # Check for events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
+# while not done:
+#     ## CONTROL
+#     # Check for events
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             done = True
 
-    screen.fill(BLACK)
-    summon = random.randint(0,10)
-    #need to change
-    theboxes = boxes()
-    if summon == 5:
-        theboxes.drawBox()
+#     screen.fill(BLACK)
+#     summon = random.randint(0,10)
+#     #need to change
+#     theboxes = boxes()
+#     if summon == 5:
+#         theboxes.drawBox()
         
-    # Update Screen
-    pygame.display.flip()
-    clock.tick(60)
-# Close the window and quit
-pygame.quit()
+#     # Update Screen
+#     pygame.display.flip()
+#     clock.tick(60)
+# # Close the window and quit
+# pygame.quit()

@@ -50,28 +50,28 @@ DARKGREEN = (0,51,0)
 ORANGE = (255,128,0)
         
 
-## Main Program Loop
-while not done:
-    ## CONTROL
-    # Check for events
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-        # Controls for player
-        elif(event.type == pygame.KEYDOWN):      
-            if event.key == pygame.K_a:
-                player.x -= player.speed
-            elif event.key == pygame.K_d:
-                player.x += player.speed
-            elif event.key == pygame.K_e:
-                print('')
+# ## Main Program Loop
+# while not done:
+#     ## CONTROL
+#     # Check for events
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             done = True
+#         # Controls for player
+#         elif(event.type == pygame.KEYDOWN):      
+#             if event.key == pygame.K_a:
+#                 player.x -= player.speed
+#             elif event.key == pygame.K_d:
+#                 player.x += player.speed
+#             elif event.key == pygame.K_e:
+#                 print('')
 
 
-    screen.fill(BLACK)
+#     screen.fill(BLACK)
 
         
-    # Update Screen
-    pygame.display.flip()
-    clock.tick(60)
-    # Close the window and quit
-    pygame.quit()
+#     # Update Screen
+#     pygame.display.flip()
+#     clock.tick(60)
+#     # Close the window and quit
+# pygame.quit()
