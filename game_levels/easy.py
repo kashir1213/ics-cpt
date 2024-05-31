@@ -1,5 +1,5 @@
 import pygame
-from summon_characters import asteroids
+from summon_characters import *
  
 asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
 
@@ -48,7 +48,7 @@ while not done:
     screen.blit(overlay, (0, 0))
 
     # Draw a black rectangle (ground)
-    x.draw(asteroidImage)
+    #x.draw(asteroidImage)
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 
     # Update the display
