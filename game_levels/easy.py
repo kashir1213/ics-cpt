@@ -1,5 +1,5 @@
 import pygame
-from summon_characters.asteroids import makeAsteroid
+from summon_characters import asteroids
  
 asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
 
@@ -22,7 +22,7 @@ done = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
-x = makeAsteroid()
+# x = makeAsteroid()
 # Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
