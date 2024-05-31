@@ -32,8 +32,9 @@ BROWN = (153, 76, 0)
 GREY = (96, 96, 96)
 YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
+ORANGE = (255,128,0)
 
-x = asteroids.makeAsteroid()
+
 # Main Program Loop
 while not done:
     # Event handling
@@ -47,7 +48,7 @@ while not done:
     # Blit the semi-transparent overlay
     screen.blit(overlay, (0, 0))
 
-    x.draw(asteroidImage)
+ 
     # Draw a black rectangle (ground)
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 

@@ -43,20 +43,20 @@ ORANGE = (255,128,0)
         
 
 # ## Main Program Loop
-# while not done:
+while not done:
 #     ## CONTROL
 #     # Check for events
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             done = True
+     for event in pygame.event.get():
+         if event.type == pygame.QUIT:
+             done = True
 #         # Controls for player
-#         elif(event.type == pygame.KEYDOWN):      
-#             if event.key == pygame.K_a:
-#                 player.x -= player.speed
-#             elif event.key == pygame.K_d:
-#                 player.x += player.speed
-#             elif event.key == pygame.K_e:
-#                 boxes.remove()
+         elif(event.type == pygame.KEYDOWN):      
+             if event.key == pygame.K_a:
+                 player.x -= player.speed
+             elif event.key == pygame.K_d:
+                 player.x += player.speed
+             elif event.key == pygame.K_e:
+                 boxes.remove()
 
 
 #     screen.fill(BLACK)
