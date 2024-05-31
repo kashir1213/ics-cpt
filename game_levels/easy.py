@@ -1,5 +1,5 @@
 import pygame
-import random
+
 # Initialize Pygame
 pygame.init()
 
@@ -34,22 +34,6 @@ DARKGREEN = (0, 51, 0)
 backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/background.png')
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 
-#buildings
-
-# class buildings():
-#     def __init__(self):
-#         self.heigth = random.randint(100, 300)
-#         self.width = random.randint(100,200)
-#     def draw(self,pos):
-#         pygame.draw.rect(screen, BLACK, [pos[0], pos[1], self.heigth, self.width], 100)
-        
-# build = buildings()
-# allBuild = []
-# x = 0
-# while x < 600:
-#     build.draw((x,400))
-
-#     x+= 30
 width = 600
 i = 0
 # Main Program Loop
