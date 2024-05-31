@@ -31,7 +31,7 @@ YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
 
-backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/background.png')
+backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/background.png')
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 
 width = 600
