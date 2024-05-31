@@ -36,47 +36,47 @@ class makeAsteroid():
         screen.blit(asteroidImage, (self.posX,self.posY))
 
 
-pygame.init()
+# pygame.init()
  
-# Set the width and height of the screen [width, height]
+# # Set the width and height of the screen [width, height]
 
-x = makeAsteroid()
+# x = makeAsteroid()
  
-pygame.display.set_caption("My Game")
+# pygame.display.set_caption("My Game")
  
-# Loop until the user clicks the close button.
-done = False
+# # Loop until the user clicks the close button.
+# done = False
  
-# Used to manage how fast the screen updates
-clock = pygame.time.Clock()
+# # Used to manage how fast the screen updates
+# clock = pygame.time.Clock()
 
-while not done:
-    # --- Main event loop
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
+# while not done:
+#     # --- Main event loop
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             done = True
  
-    # --- Game logic should go here
+#     # --- Game logic should go here
  
-    # --- Screen-clearing code goes here
+#     # --- Screen-clearing code goes here
     
     
-    # Here, we clear the screen to white. Don't put other drawing commands
-    # above this, or they will be erased with this command.
+#     # Here, we clear the screen to white. Don't put other drawing commands
+#     # above this, or they will be erased with this command.
  
-    # If you want a background image, replace this clear with blit'ing the
-    # background image.
-    screen.fill(BLACK)
-    x.draw()
-    x.move()
+#     # If you want a background image, replace this clear with blit'ing the
+#     # background image.
+#     screen.fill(BLACK)
+#     x.draw()
+#     x.move()
  
-    # --- Drawing code should go here
+#     # --- Drawing code should go here
  
-    # --- Go ahead and update the screen with what we've drawn.
-    pygame.display.flip()
+#     # --- Go ahead and update the screen with what we've drawn.
+#     pygame.display.flip()
  
-    # --- Limit to 60 frames per second
-    clock.tick(60)
+#     # --- Limit to 60 frames per second
+#     clock.tick(60)
  
-# Close the window and quit.
-pygame.quit()
+# # Close the window and quit.
+# pygame.quit()

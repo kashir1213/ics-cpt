@@ -1,6 +1,7 @@
 ## Easy mode
 
 import pygame
+import asteroids
 
 # Initialize Pygame
 pygame.init()
@@ -38,6 +39,8 @@ transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 
 width = 600
 i = 0
+
+asteroid = asteroids.makeAsteroid()
 # Main Program Loop
 while not done:
     # Event handling
@@ -58,6 +61,9 @@ while not done:
         screen.blit(transformedBack,(width+i,0))
         i = 0
     i -= 1
+
+    asteroid.draw()
+    asteroid.move()
 
     # Update the display
     pygame.display.flip()
