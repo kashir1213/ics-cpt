@@ -6,7 +6,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
-size = (700, 500)
+size = (800, 600)
 screen = pygame.display.set_mode(size)
 
 # asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
@@ -24,10 +24,14 @@ class makeAsteroid():
         self.moveY = random.randint(500,700)       
 
     def move(self):
-        while self.posX == self.moveX:
-            self.posX += 10
-        while self.posY == self.moveY:
-            self.posY += 10
+
+        if self.posX < self.moveX:
+            self.posX += 6
+            print(self.posX)
+
+        if self.posY < self.moveY:
+            self.posY += 6
+            print(self.posY)
         
     def draw(self):
         asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))
