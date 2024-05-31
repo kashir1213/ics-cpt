@@ -1,3 +1,5 @@
+## Easy mode
+
 import pygame
 
 # Initialize Pygame

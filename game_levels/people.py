@@ -12,16 +12,8 @@ class character:
 
     def drawPlayer(self, screen):
         # Head
-        pygame.draw.ellipse(screen, YELLOW, [1+self.x, self.y, 10, 10], 0)
-        # Legs
-        pygame.draw.line(screen, YELLOW ,[5+self.x, 17+self.y], [10+self.x, 27+self.y], 2)
-        pygame.draw.line(screen, YELLOW, [5+self.x, 17+self.y], [self.x, 27+self.y], 2)
-        # Body
-        pygame.draw.line(screen, BLUE, [5+self.x, 17+self.y], [5+self.x, 7+self.y], 2)
-        # Arms
-        pygame.draw.line(screen, BLUE, [5+self.x, 7+self.y], [9+self.x, 17+self.y], 2)
-        pygame.draw.line(screen, BLUE, [5+self.x, 7+self.y], [1+self.x, 17+self.y], 2)
-
+        pygame.draw.rect(screen, YELLOW, [1+self.x, self.y, 10, 10], 0)
+        
 player = character()
 pygame.init()
 size = (800,600)
