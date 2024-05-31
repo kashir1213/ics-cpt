@@ -1,5 +1,5 @@
 import pygame
-
+import boxes
 # Player created just to test(imported from my lab file)
 class character:
 
@@ -64,7 +64,7 @@ ORANGE = (255,128,0)
 #             elif event.key == pygame.K_d:
 #                 player.x += player.speed
 #             elif event.key == pygame.K_e:
-#                 print('')
+#                 boxes.remove()
 
 
 #     screen.fill(BLACK)
