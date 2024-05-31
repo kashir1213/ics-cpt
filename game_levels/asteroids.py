@@ -26,12 +26,12 @@ class makeAsteroid():
     def move(self):
 
         if self.posX < self.moveX:
-            self.posX += 6
-            print(self.posX)
+            self.posX += (self.moveX)/70
+            # print(self.posX)
 
         if self.posY < self.moveY:
-            self.posY += 6
-            print(self.posY)
+            self.posY += (self.moveY)/70
+            # print(self.posY)
         
     def draw(self):
         asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))
