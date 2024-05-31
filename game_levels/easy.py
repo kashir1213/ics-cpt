@@ -1,9 +1,5 @@
 import pygame
-from summon_characters import *
- 
-asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
-
-
+import random
 # Initialize Pygame
 pygame.init()
 
@@ -13,7 +9,7 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Animation")
 
-# Create a surface with per-pixel alpha
+# Create a surface with 
 overlay = pygame.Surface((800, 600), pygame.SRCALPHA)
 overlay.fill((153, 76, 0, 50))  # RGBA color
 
@@ -34,6 +30,28 @@ GREY = (96, 96, 96)
 YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
+
+backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/background.png')
+transformedBack = pygame.transform.scale(backgroundImage, (800,600))
+
+#buildings
+
+# class buildings():
+#     def __init__(self):
+#         self.heigth = random.randint(100, 300)
+#         self.width = random.randint(100,200)
+#     def draw(self,pos):
+#         pygame.draw.rect(screen, BLACK, [pos[0], pos[1], self.heigth, self.width], 100)
+        
+# build = buildings()
+# allBuild = []
+# x = 0
+# while x < 600:
+#     build.draw((x,400))
+
+#     x+= 30
+width = 600
+i = 0
 # Main Program Loop
 while not done:
     # Event handling
@@ -41,15 +59,26 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
+    # # Fill the screen with black
+    # screen.fill((0xff, 0xff, 0xff))
 
-    # Blit the semi-transparent overlay
-    screen.blit(overlay, (0, 0))
+    # # Blit the semi-transparent overlay
+    # screen.blit(overlay, (0, 0))
 
-    # Draw a black rectangle (ground)
-    #x.draw(asteroidImage)
-    pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
+    # # Draw a black rectangle (ground)
+    # #x.draw(asteroidImage)
+    # pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
+
+
+    #moving background
+    screen.fill((0,0,0))
+    screen.blit(transformedBack, (i,0))
+    screen.blit(transformedBack,(width+i,0))
+
+    if i == -width:
+        screen.blit(transformedBack,(width+i,0))
+        i = 0
+    i -= 1
 
     # Update the display
     pygame.display.flip()
