@@ -7,6 +7,13 @@ screen = pygame.display.set_mode(size)
 class mainCharacter():
     def __init__(self):
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
+        self.image = pygame.transform.flip(self.image, True, False)
+        self.xpos = 100
+        self.ypos = 100
+
+        self.rateX = 0
+        self.rateY = 0
+
         self.x = 370
         self.y = 100
 
@@ -18,21 +25,33 @@ class mainCharacter():
         self.movement6 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement6.png')
         # self.movement7 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement7.png')
 
+
+        self.movement1 = pygame.transform.flip(self.movement1, True, False)
+        self.movement2 = pygame.transform.flip(self.movement2, True, False)
+        self.movement3 = pygame.transform.flip(self.movement3, True, False)
+        self.movement4 = pygame.transform.flip(self.movement4, True, False)
+        self.movement5 = pygame.transform.flip(self.movement5, True, False)
+        self.movement6 = pygame.transform.flip(self.movement6, True, False)
+
         self.movements = [self.movement1, self.movement2,self.movement3, self.movement4, self.movement5, self.movement6]
         self.current_image = 0
 
         self.animating = False
 
     def draw(self):
-        # Head
+        
         image = pygame.transform.scale(self.image,(100,100))
         screen.blit(image, (self.x, self.y))
+    def move(self, position):
+        if position == 'L':
+            self.x -= 5
     def anim(self):
         if self.animating:
             self.current_image += 1
             if self.current_image >= len(self.movements):
                 self.current_image = 0
             self.image = self.movements[self.current_image]
+
         
         
 player = mainCharacter()
@@ -73,6 +92,9 @@ while not done:
             done = True
         if event.type == pygame.KEYUP:
             player.animating = True
+            
+        if event.type == pygame.KEYDOWN:
+            player.move('L')
             print(True)
         
     
