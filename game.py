@@ -5,7 +5,6 @@ import pygame
 
 # Initialize Pygame
 pygame.init()
-from summon_characters import *
 
 asteroidImage  = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/asteroid.png')
 
