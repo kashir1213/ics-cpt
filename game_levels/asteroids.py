@@ -16,7 +16,7 @@ class makeAsteroid():
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/asteroid.png')
         self.image = pygame.transform.flip(self.image, True, False)
         self.width = random.randint(100, 500)
-        self.height = random.randint(100, 500)
+        self.height = self.width
 
         self.posX = 700
         self.posY = 20
