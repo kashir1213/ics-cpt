@@ -1,23 +1,30 @@
 import pygame
-import boxes
 # Player created just to test(imported from my lab file)
-class character:
 
-    def __init__(self):
-        self.x = 370
-        self.y = 470
-        self.speed = 5
-        self.width = 80
-        self.height = 70
-
-    def drawPlayer(self, screen):
-        # Head
-        pygame.draw.rect(screen, YELLOW, [1+self.x, self.y, 10, 10], 0)
-        
-player = character()
 pygame.init()
 size = (800,600)
 screen = pygame.display.set_mode(size)
+class mainCharacter():
+    def __init__(self):
+        self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
+        self.x = 370
+        self.y = 100
+
+        self.movement1 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement1.png')
+        self.movement2 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement2.png')
+        self.movement3 = pygame.image.load()
+
+        self.movements = [self.movement1, self.movement2]
+
+    def draw(self):
+        # Head
+        image = pygame.transform.scale(self.image,(100,100))
+        screen.blit(image, (self.x, self.y))
+        
+        
+player = mainCharacter()
+
+
 
 
 # Loop until the user clicks the close button.
@@ -46,24 +53,24 @@ ORANGE = (255,128,0)
 while not done:
 #     ## CONTROL
 #     # Check for events
-     for event in pygame.event.get():
-         if event.type == pygame.QUIT:
-             done = True
-#         # Controls for player
-         elif(event.type == pygame.KEYDOWN):      
-             if event.key == pygame.K_a:
-                 player.x -= player.speed
-             elif event.key == pygame.K_d:
-                 player.x += player.speed
-             elif event.key == pygame.K_e:
-                 boxes.remove()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+    screen.fill(BLACK)
 
+    player.draw()
+# #         # Controls for player
+#          elif(event.type == pygame.KEYDOWN):      
+#              if event.key == pygame.K_a:
+#                  player.x -= player.speed
+#              elif event.key == pygame.K_d:
+#                  player.x += player.speed
+#              elif event.key == pygame.K_e:
+#                  boxes.remove()
 
-#     screen.fill(BLACK)
+    # Update Screen
+    pygame.display.flip()
+    clock.tick(60)
 
-        
-#     # Update Screen
-#     pygame.display.flip()
-#     clock.tick(60)
-#     # Close the window and quit
-# pygame.quit()
+# Close the window and quit
+pygame.quit()
