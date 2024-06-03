@@ -8,11 +8,6 @@ class mainCharacter():
     def __init__(self):
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
         self.image = pygame.transform.flip(self.image, True, False)
-        self.xpos = 100
-        self.ypos = 100
-
-        self.rateX = 0
-        self.rateY = 0
 
         self.x = 370
         self.y = 100
