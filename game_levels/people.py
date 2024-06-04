@@ -41,22 +41,17 @@ class mainCharacter():
         image = pygame.transform.scale(self.image,(100,100))
         screen.blit(image, (self.x, self.y))
     def move(self, position):
-<<<<<<< Updated upstream
         if position == 'L':
-            self.x -= 1000
-=======
-        if position == 'L': 
-            self.x -= 7
->>>>>>> Stashed changes
+            self.x -= 8
         
         if position == 'R':
-            self.x += 1000
+            self.x += 8
         
         if position == 'U':
-            self.y -= 1000
+            self.y -= 8
 
         if position == 'D':
-            self.y += 1000
+            self.y += 8
     def anim(self):
         if self.animating:
             self.current_image += 1
@@ -66,61 +61,62 @@ class mainCharacter():
 
         
 
-# player = mainCharacter()
+player = mainCharacter()
 
 
 
 
-# # Loop until the user clicks the close button.
-# done = False
+# Loop until the user clicks the close button.
+done = False
 
-# # Used to manage how fast the screen updates
-# clock = pygame.time.Clock()
-# # Update Screen
-# pygame.display.flip()
-# clock.tick(60)
+# Used to manage how fast the screen updates
+clock = pygame.time.Clock()
+# Update Screen
+pygame.display.flip()
+clock.tick(60)
 
-# # Colours
-# BLACK = (0, 0, 0)
-# WHITE = (255, 255, 255)
-# GREEN = (0, 255, 0)
-# RED = (255, 0, 0)
-# BLUE = (0, 0, 255)
-# BROWN = (153,76,0)
-# GREY = (96,96,96)
-# YELLOW = (255,255,0)
-# DARKGREEN = (0,51,0)
-# ORANGE = (255,128,0)
+# Colours
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
+BLUE = (0, 0, 255)
+BROWN = (153,76,0)
+GREY = (96,96,96)
+YELLOW = (255,255,0)
+DARKGREEN = (0,51,0)
+ORANGE = (255,128,0)
         
-# # ## Main Program Loop
-# while not done:
-# #     ## CONTROL
-# #     # Check for events
+n = 0
+# ## Main Program Loop
+while not done:
+#     ## CONTROL
+#     # Check for events
     
     
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             done = True
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
     
-#     keys = pygame.key.get_pressed()
-#     if keys[pygame.K_a]:
-#         player.move('L')
-#     if keys[pygame.K_d]:
-#         player.move('R')
-#     if keys[pygame.K_w]:
-#         player.move('U')
-#     if keys[pygame.K_s]:
-#         player.move('D')
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        player.move('L')
+    if keys[pygame.K_d]:
+        player.move('R')
+    if keys[pygame.K_w]:
+        player.move('U')
+    if keys[pygame.K_s]:
+        player.move('D')
     
-#     # print(pygame.key.get_pressed(pygame.K_a))
-#     player.anim()
+    # print(pygame.key.get_pressed(pygame.K_a))
+    player.anim()
 
-#     screen.fill(BLACK)
+    screen.fill(BLACK)
 
-#     player.draw()
-#     # Update Screen
-#     pygame.display.flip()
-#     clock.tick(10)
+    player.draw()
+    # Update Screen
+    pygame.display.flip()
+    clock.tick(10)
 
-# # Close the window and quit
-# pygame.quit()
+# Close the window and quit
+pygame.quit()
