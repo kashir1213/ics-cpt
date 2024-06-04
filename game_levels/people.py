@@ -42,16 +42,16 @@ class mainCharacter():
         screen.blit(image, (self.x, self.y))
     def move(self, position):
         if position == 'L':
-            self.x -= 7
+            self.x -= 1000
         
         if position == 'R':
-            self.x += 7
+            self.x += 1000
         
         if position == 'U':
-            self.y -= 7
+            self.y -= 1000
 
         if position == 'D':
-            self.y += 7
+            self.y += 1000
     def anim(self):
         if self.animating:
             self.current_image += 1
