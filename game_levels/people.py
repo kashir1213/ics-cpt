@@ -4,6 +4,9 @@ import pygame
 pygame.init()
 size = (800,600)
 screen = pygame.display.set_mode(size)
+
+
+
 class mainCharacter():
     def __init__(self):
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
@@ -31,7 +34,7 @@ class mainCharacter():
         self.movements = [self.movement1, self.movement2,self.movement3, self.movement4, self.movement5, self.movement6]
         self.current_image = 0
 
-        self.animating = False
+        self.animating = True
 
     def draw(self):
         
@@ -39,7 +42,16 @@ class mainCharacter():
         screen.blit(image, (self.x, self.y))
     def move(self, position):
         if position == 'L':
-            self.x -= 5
+            self.x -= 7
+        
+        if position == 'R':
+            self.x += 7
+        
+        if position == 'U':
+            self.y -= 7
+
+        if position == 'D':
+            self.y += 7
     def anim(self):
         if self.animating:
             self.current_image += 1
@@ -48,7 +60,7 @@ class mainCharacter():
             self.image = self.movements[self.current_image]
 
         
-        
+
 player = mainCharacter()
 
 
@@ -75,7 +87,7 @@ YELLOW = (255,255,0)
 DARKGREEN = (0,51,0)
 ORANGE = (255,128,0)
         
-
+n = 0
 # ## Main Program Loop
 while not done:
 #     ## CONTROL
@@ -85,30 +97,23 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        if event.type == pygame.KEYUP:
-            player.animating = True
-            
-        if event.type == pygame.KEYDOWN:
-            player.move('L')
-            print(True)
-        
     
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        player.move('L')
+    if keys[pygame.K_d]:
+        player.move('R')
+    if keys[pygame.K_w]:
+        player.move('U')
+    if keys[pygame.K_s]:
+        player.move('D')
+    
+    # print(pygame.key.get_pressed(pygame.K_a))
     player.anim()
 
     screen.fill(BLACK)
 
     player.draw()
-
-    
-# #         # Controls for player
-#          elif(event.type == pygame.KEYDOWN):      
-#              if event.key == pygame.K_a:
-#                  player.x -= player.speed
-#              elif event.key == pygame.K_d:
-#                  player.x += player.speed
-#              elif event.key == pygame.K_e:
-#                  boxes.remove()
-
     # Update Screen
     pygame.display.flip()
     clock.tick(10)
