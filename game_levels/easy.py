@@ -84,7 +84,7 @@ while not done:
     pygame.display.flip()
 
     # Limit frames per second
-    clock.tick(200)
+    clock.tick(60)
 
 # Quit Pygame
 pygame.quit()
