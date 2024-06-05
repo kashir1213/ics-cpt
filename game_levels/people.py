@@ -52,6 +52,7 @@ class mainCharacter():
 
         if position == 'D':
             self.y += 8
+
     def anim(self):
         if self.animating:
             self.current_image += 1
@@ -61,7 +62,7 @@ class mainCharacter():
 
         
 
-player = mainCharacter()
+# player = mainCharacter()
 
 
 
@@ -86,37 +87,38 @@ GREY = (96,96,96)
 YELLOW = (255,255,0)
 DARKGREEN = (0,51,0)
 ORANGE = (255,128,0)
-        
-n = 0
-# ## Main Program Loop
-while not done:
-#     ## CONTROL
-#     # Check for events
-    
-    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-    
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_a]:
-        player.move('L')
-    if keys[pygame.K_d]:
-        player.move('R')
-    if keys[pygame.K_w]:
-        player.move('U')
-    if keys[pygame.K_s]:
-        player.move('D')
-    
-    # print(pygame.key.get_pressed(pygame.K_a))
-    player.anim()
 
-    screen.fill(BLACK)
 
-    player.draw()
-    # Update Screen
-    pygame.display.flip()
-    clock.tick(10)
+# n = 0
+# # ## Main Program Loop
+# while not done:
+# #     ## CONTROL
+# #     # Check for events
+    
+    
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             done = True
+    
+#     keys = pygame.key.get_pressed()
+#     if keys[pygame.K_a]:
+#         player.move('L')
+#     if keys[pygame.K_d]:
+#         player.move('R')
+#     if keys[pygame.K_w]:
+#         player.move('U')
+#     if keys[pygame.K_s]:
+#         player.move('D')
+    
+#     # print(pygame.key.get_pressed(pygame.K_a))
+#     player.anim()
 
-# Close the window and quit
-pygame.quit()
+#     screen.fill(BLACK)
+
+#     player.draw()
+#     # Update Screen
+#     pygame.display.flip()
+#     clock.tick(10)
+
+# # Close the window and quit
+# pygame.quit()

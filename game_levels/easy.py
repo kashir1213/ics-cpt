@@ -2,6 +2,7 @@
 
 import pygame
 import asteroids
+import people 
 
 # Initialize Pygame
 pygame.init()
@@ -41,6 +42,7 @@ width = 600
 i = 0
 
 asteroid = asteroids.makeAsteroid()
+mc = people.mainCharacter()
 # Main Program Loop
 while not done:
     # Event handling
@@ -65,11 +67,24 @@ while not done:
     asteroid.draw()
     asteroid.move()
 
+    mc.draw()
+    mc.anim()
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        mc.move('L') 
+    if keys[pygame.K_d]:
+        mc.move('R')
+    if keys[pygame.K_w]:
+        mc.move('U')
+    if keys[pygame.K_s]:
+        mc.move('D')
+
     # Update the display
     pygame.display.flip()
 
     # Limit frames per second
-    clock.tick(60)
+    clock.tick(200)
 
 # Quit Pygame
 pygame.quit()
