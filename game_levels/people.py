@@ -41,17 +41,19 @@ class mainCharacter():
         image = pygame.transform.scale(self.image,(100,100))
         screen.blit(image, (self.x, self.y))
     def move(self, position):
-        if position == 'L':
-            self.x -= 8
-        
-        if position == 'R':
-            self.x += 8
-        
-        if position == 'U':
-            self.y -= 8
 
-        if position == 'D':
-            self.y += 8
+        if (800 > self.x > 50) and (600 > self.y > 50):
+            if position == 'L':
+                self.x -= 8
+            
+            if position == 'R':
+                self.x += 8
+            
+            if position == 'U':
+                self.y -= 8
+
+            if position == 'D':
+                self.y += 8
 
     def anim(self):
         if self.animating:
