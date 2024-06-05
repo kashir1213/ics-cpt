@@ -31,6 +31,8 @@ GREY = (96, 96, 96)
 YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
+death_sound = pygame.mixer.Sound("Wake_tf_up.mp3")
+
 
 # Main Program Loop
 while not done:
