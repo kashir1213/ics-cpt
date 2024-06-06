@@ -1,5 +1,4 @@
 import pygame
-# Player created just to test(imported from my lab file)
 
 pygame.init()
 size = (800,600)
