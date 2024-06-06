@@ -13,16 +13,11 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Animation")
 
-# Create a surface with 
-overlay = pygame.Surface((800, 600), pygame.SRCALPHA)
-overlay.fill((153, 76, 0, 50))  # RGBA color
-
 # Loop until the user clicks the close button.
 done = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
-# x = makeAsteroid()
 # Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -35,7 +30,7 @@ YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
 
-backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/background.png')
+backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/background.png').convert()
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 
 width = 600
