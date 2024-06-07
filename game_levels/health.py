@@ -2,7 +2,6 @@
 # Kevin Tuiza
 
 import pygame
-import random
 
 pygame.init()
 size = (800,600)

@@ -82,8 +82,11 @@ while not done:
             pos = mc.x
         newAsteroid.draw()
         newAsteroid.move((pos, 700))
+
     
-    collide = pygame.Rect.colliderect(mc, newAsteroid)
+    mcRect = mc.returnRect()
+    asteroidRect = newAsteroid.returnRect()
+    collide = collide = mcRect.colliderect(asteroidRect)
 
     if collide:
         print('yes')

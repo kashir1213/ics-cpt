@@ -32,6 +32,8 @@ class mainCharacter():
 
         self.animating = True
 
+        self.imageRect = 0
+
     def draw(self):
         
         image = pygame.transform.scale(self.image,(100,100))
@@ -57,6 +59,10 @@ class mainCharacter():
             if self.current_image >= len(self.movements):
                 self.current_image = 0
             self.image = self.movements[self.current_image]
+    
+    def returnRect(self):
+        self.imageRect = self.image.get_rect()
+        
 
         
 
