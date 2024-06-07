@@ -23,6 +23,8 @@ class makeAsteroid():
 
         self.rotation = 0
 
+        self.imageRect = 0
+
 
     def move(self, toMove):
         moveX = toMove[0]
@@ -38,6 +40,10 @@ class makeAsteroid():
         asteroidImage = pygame.transform.rotate(asteroidImage, self.rotation)
         self.rotation += 20
         screen.blit(asteroidImage, (self.posX,self.posY))
+    
+    def returnRect(self):
+        self.imageRect = self.image.get_rect()
+        
 
 
 # pygame.init()

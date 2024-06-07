@@ -86,7 +86,7 @@ while not done:
     
     mcRect = mc.returnRect()
     asteroidRect = newAsteroid.returnRect()
-    collide = collide = mcRect.colliderect(asteroidRect)
+    collide = mcRect.colliderect(asteroidRect) 
 
     if collide:
         print('yes')
