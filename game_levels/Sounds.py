@@ -32,7 +32,7 @@ YELLOW = (255, 255, 0)
 DARKGREEN = (0, 51, 0)
 
 # Test sounds in characters death
-death_sound = pygame.mixer.Sound("Wake_tf_up.mp3")
+death_sound = pygame.mixer.Sound()
 
 
 # Main Program Loop
