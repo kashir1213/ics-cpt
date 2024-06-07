@@ -4,6 +4,7 @@ import pygame
 import asteroids
 import people 
 
+
 # Initialize Pygame
 pygame.init()
 
@@ -18,49 +19,39 @@ done = False
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
-# Colors
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
-BROWN = (153, 76, 0)
-GREY = (96, 96, 96)
-YELLOW = (255, 255, 0)
-DARKGREEN = (0, 51, 0)
+
 
 
 backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/background.png').convert()
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
+tiles = (size[1]/600) + 2
+scroll = 0
+asteroids_list = []
+asteroid_cooldown = 0
+asteroidPresent = False
+i = 1
+mc = people.mainCharacter(100, 450, (-20, 350, 700, 530))
 
-width = 600
-i = 0
-
-asteroid = asteroids.makeAsteroid()
-mc = people.mainCharacter()
 # Main Program Loop
+
+
 while not done:
+    asteroid_summoned = False
     # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
 
-    # # Fill the screen with black
-    # screen.fill((0xff, 0xff, 0xff))
-
 
     #moving background
-    screen.fill((0,0,0))
-    screen.blit(transformedBack, (i,0))
-    screen.blit(transformedBack,(width+i,0))
+    for j in range(0, int(tiles)):
+        screen.blit(transformedBack, (j * 600 + scroll,0))
+    
+    scroll -= 5
 
-    if i == -width:
-        screen.blit(transformedBack,(width+i,0))
-        i = 0
-    i -= 1
+    if abs(scroll) > 600:
+        scroll = 0
 
-    asteroid.draw()
-    asteroid.move()
 
     mc.draw()
     mc.anim()
@@ -75,11 +66,30 @@ while not done:
     if keys[pygame.K_s]:
         mc.move('D')
 
+    
+    
+    if asteroid_cooldown <= 0 and (i % 2 == 0) and len(asteroids_list) < 1:
+        new_asteroid = asteroids.makeAsteroid()
+        asteroids_list.append(new_asteroid)
+        asteroid_cooldown = 100  # Reset cooldown timer (adjust as needed)
+
+    # Decrease cooldown timer
+    asteroid_cooldown -= 1
+
+    for asteroid in asteroids_list:
+        if (asteroid.posX == mc.x or asteroid.posX == 0) and (asteroid.posY == mc.y or asteroid.posY == 0):
+            asteroid.move((mc.x, mc.y))
+        
+        if asteroid.posX == mc.x and asteroid.posY == mc.y:
+            asteroids_list = []
+            
+        asteroid.draw()
+    i += 1
     # Update the display
     pygame.display.flip()
 
     # Limit frames per second
-    clock.tick(60)
+    clock.tick(120)
 
 # Quit Pygame
 pygame.quit()

@@ -15,25 +15,23 @@ class makeAsteroid():
     def __init__(self):
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/asteroid.png')
         self.image = pygame.transform.flip(self.image, True, False)
-        self.width = random.randint(100, 500)
+        self.width = random.randint(100, 200)
         self.height = self.width
 
-        self.posX = 700
-        self.posY = 20
+        self.posX = 0
+        self.posY = 0
 
         self.rotation = 0
 
-        self.moveX = random.randint(0,600) 
-        self.moveY = random.randint(500,700)       
 
-    def move(self):
+    def move(self, toMove):
+        moveX = toMove[0]
+        moveY = toMove[1]
         
-        
-
-        if self.posX > self.moveX:
-            self.posX -= (self.posX - self.moveX)/70
-        if self.posY < self.moveY:
-            self.posY += abs((self.posY - self.moveY)/70)
+        if self.posX < moveX:
+            self.posX -= (self.posX - moveX)/1
+        if self.posY < moveY:
+            self.posY += abs((self.posY - moveY)/1)
         
     def draw(self):
         asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))

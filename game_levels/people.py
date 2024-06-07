@@ -8,12 +8,16 @@ screen = pygame.display.set_mode(size)
 
 
 class mainCharacter():
-    def __init__(self):
+    def __init__(self, xPos, yPos, stop):
+
+        self.x = xPos
+        self.y = yPos
+        self.stop = list(stop)
+
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
         self.image = pygame.transform.flip(self.image, True, False)
 
-        self.x = 370
-        self.y = 100
+
 
         self.movement1 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement1.png')
         self.movement2 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement2.png')
@@ -33,18 +37,18 @@ class mainCharacter():
         
         image = pygame.transform.scale(self.image,(100,100))
         screen.blit(image, (self.x, self.y))
-    def move(self, position):
+    def move(self,position):
 
-        if (800 > self.x > 50) and (600 > self.y > 50):
+        if(self.x > self.stop[0]):
             if position == 'L':
                 self.x -= 8
-            
+        if(self.x < self.stop[2]):
             if position == 'R':
                 self.x += 8
-            
+        if(self.y > self.stop[1]):
             if position == 'U':
                 self.y -= 8
-
+        if(self.y < self.stop[3]):
             if position == 'D':
                 self.y += 8
 
@@ -62,27 +66,31 @@ class mainCharacter():
 
 
 
-# Loop until the user clicks the close button.
-done = False
+# # Loop until the user clicks the close button.
+# done = False
 
-# Used to manage how fast the screen updates
-clock = pygame.time.Clock()
-# Update Screen
-pygame.display.flip()
-clock.tick(60)
+# # Used to manage how fast the screen updates
+# clock = pygame.time.Clock()
+# # Update Screen
+# pygame.display.flip()
+# clock.tick(60)
 
-# Colours
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
-BROWN = (153,76,0)
-GREY = (96,96,96)
-YELLOW = (255,255,0)
-DARKGREEN = (0,51,0)
-ORANGE = (255,128,0)
+# # Colours
+# BLACK = (0, 0, 0)
+# WHITE = (255, 255, 255)
+# GREEN = (0, 255, 0)
+# RED = (255, 0, 0)
+# BLUE = (0, 0, 255)
+# BROWN = (153,76,0)
+# GREY = (96,96,96)
+# YELLOW = (255,255,0)
+# DARKGREEN = (0,51,0)
+# ORANGE = (255,128,0)
 
+# playerX = 100
+# playerY = 100
+
+# player = mainCharacter(playerX, playerY,(50, 50, 700, 500))
 
 # n = 0
 # # ## Main Program Loop
