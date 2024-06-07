@@ -18,8 +18,8 @@ class makeAsteroid():
         self.width = random.randint(100, 200)
         self.height = self.width
 
-        self.posX = 0
-        self.posY = 0
+        self.posX = -100
+        self.posY = -100
 
         self.rotation = 0
 
@@ -29,9 +29,9 @@ class makeAsteroid():
         moveY = toMove[1]
         
         if self.posX < moveX:
-            self.posX -= (self.posX - moveX)/1
+            self.posX -= (self.posX - moveX)/50
         if self.posY < moveY:
-            self.posY += abs((self.posY - moveY)/1)
+            self.posY += abs((self.posY - moveY)/50)
         
     def draw(self):
         asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))

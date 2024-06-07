@@ -3,8 +3,8 @@
 import pygame
 import asteroids
 import people 
-
-
+import random
+import health
 # Initialize Pygame
 pygame.init()
 
@@ -26,14 +26,13 @@ backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Ca
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 tiles = (size[1]/600) + 2
 scroll = 0
-asteroids_list = []
-asteroid_cooldown = 0
+
 asteroidPresent = False
-i = 1
 mc = people.mainCharacter(100, 450, (-20, 350, 700, 530))
 
 # Main Program Loop
-
+newAsteroid = asteroids.makeAsteroid()
+mcHealth = health.healthbar(200)
 
 while not done:
     asteroid_summoned = False
@@ -42,7 +41,7 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-
+    
     #moving background
     for j in range(0, int(tiles)):
         screen.blit(transformedBack, (j * 600 + scroll,0))
@@ -51,7 +50,6 @@ while not done:
 
     if abs(scroll) > 600:
         scroll = 0
-
 
     mc.draw()
     mc.anim()
@@ -67,28 +65,32 @@ while not done:
         mc.move('D')
 
     
+    if newAsteroid.posY < 650 and newAsteroid.posY > -200:
+        asteroidPresent = True
+    else: 
+        asteroidPresent = False
     
-    if asteroid_cooldown <= 0 and (i % 2 == 0) and len(asteroids_list) < 1:
-        new_asteroid = asteroids.makeAsteroid()
-        asteroids_list.append(new_asteroid)
-        asteroid_cooldown = 100  # Reset cooldown timer (adjust as needed)
+    if asteroidPresent == False:
+        num = random.randint(0, 100)
+        if num%10 == 0:
+            newAsteroid = asteroids.makeAsteroid() 
+            newAsteroid.draw()
+            newAsteroid.move((mc.x + newAsteroid.height, 700))
+    else:
+        pos = mc.x+ newAsteroid.height
+        if mc.x < 0:
+            pos = mc.x
+        newAsteroid.draw()
+        newAsteroid.move((pos, 700))
+    
+    collide = pygame.Rect.colliderect(mc, newAsteroid)
 
-    # Decrease cooldown timer
-    asteroid_cooldown -= 1
-
-    for asteroid in asteroids_list:
-        if (asteroid.posX == mc.x or asteroid.posX == 0) and (asteroid.posY == mc.y or asteroid.posY == 0):
-            asteroid.move((mc.x, mc.y))
-        
-        if asteroid.posX == mc.x and asteroid.posY == mc.y:
-            asteroids_list = []
-            
-        asteroid.draw()
-    i += 1
+    if collide:
+        print('yes')
     # Update the display
     pygame.display.flip()
 
-    # Limit frames per second
+    # Limit fr  ames per second
     clock.tick(120)
 
 # Quit Pygame
