@@ -15,15 +15,16 @@ class mainCharacter():
 
         self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/default.png')
         self.image = pygame.transform.flip(self.image, True, False)
+        self.mask = None
 
 
 
-        self.movement1 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement1.png')
-        self.movement2 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement2.png')
-        self.movement3 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement3.png')
-        self.movement4 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement4.png')
-        self.movement5 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement5.png')
-        self.movement6 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement6.png')
+        self.movement1 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement1.png').convert_alpha()
+        self.movement2 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement2.png').convert_alpha()
+        self.movement3 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement3.png').convert_alpha()
+        self.movement4 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement4.png').convert_alpha()
+        self.movement5 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement5.png').convert_alpha()
+        self.movement6 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement6.png').convert_alpha()
         # self.movement7 = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/movement7.png')
 
 
@@ -37,6 +38,7 @@ class mainCharacter():
     def draw(self):
         
         image = pygame.transform.scale(self.image,(100,100))
+        self.mask = pygame.mask.from_surface(self.image)
         screen.blit(image, (self.x, self.y))
     def move(self,position):
 
@@ -59,9 +61,9 @@ class mainCharacter():
             if self.current_image >= len(self.movements):
                 self.current_image = 0
             self.image = self.movements[self.current_image]
+            self.imageRect = self.image.get_rect()
     
-    def returnRect(self):
-        self.imageRect = self.image.get_rect()
+
         
 
         

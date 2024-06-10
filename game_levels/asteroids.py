@@ -13,7 +13,7 @@ screen = pygame.display.set_mode(size)
 
 class makeAsteroid():
     def __init__(self):
-        self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/asteroid.png')
+        self.image = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/asteroid.png').convert_alpha()
         self.image = pygame.transform.flip(self.image, True, False)
         self.width = random.randint(100, 200)
         self.height = self.width
@@ -25,24 +25,29 @@ class makeAsteroid():
 
         self.imageRect = 0
 
+        self.imageShow = True
 
     def move(self, toMove):
         moveX = toMove[0]
         moveY = toMove[1]
         
         if self.posX < moveX:
-            self.posX -= (self.posX - moveX)/50
+            self.posX -= (self.posX - moveX)/100
         if self.posY < moveY:
-            self.posY += abs((self.posY - moveY)/50)
+            self.posY += abs((self.posY - moveY)/100)
         
     def draw(self):
-        asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))
-        asteroidImage = pygame.transform.rotate(asteroidImage, self.rotation)
-        self.rotation += 20
-        screen.blit(asteroidImage, (self.posX,self.posY))
+        if self.imageShow == True:
+            asteroidImage = pygame.transform.scale(self.image, (self.width,self.height))
+            asteroidImage = pygame.transform.rotate(asteroidImage, self.rotation)
+            self.rotation += 20
+            screen.blit(asteroidImage, (self.posX,self.posY))
+            self.mask = pygame.mask.from_surface(asteroidImage)
+
+    def delete(self):
+        self.imageShow = False
     
-    def returnRect(self):
-        self.imageRect = self.image.get_rect()
+        
         
 
 

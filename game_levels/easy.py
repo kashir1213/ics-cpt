@@ -32,8 +32,12 @@ mc = people.mainCharacter(100, 450, (-20, 350, 700, 530))
 
 # Main Program Loop
 newAsteroid = asteroids.makeAsteroid()
-mcHealth = health.healthbar(200)
+healthNum = 200
+collision = None
+toMove =()
+movementPos = []
 
+touched = False
 while not done:
     asteroid_summoned = False
     # Event handling
@@ -63,33 +67,49 @@ while not done:
         mc.move('U')
     if keys[pygame.K_s]:
         mc.move('D')
-
-    
-    if newAsteroid.posY < 650 and newAsteroid.posY > -200:
+    if (newAsteroid.posY < (mc.y-100) and newAsteroid.posY > -100) or asteroidPresent == True:
         asteroidPresent = True
     else: 
         asteroidPresent = False
     
+    
     if asteroidPresent == False:
-        num = random.randint(0, 100)
-        if num%10 == 0:
+        num = random.randint(0, 500)
+        if num%2 == 0:
+            movementPos.clear()
             newAsteroid = asteroids.makeAsteroid() 
             newAsteroid.draw()
-            newAsteroid.move((mc.x + newAsteroid.height, 700))
+            toMove = (mc.x + newAsteroid.height,mc.y)
+            movementPos.append((toMove[0], toMove[1]))
+            newAsteroid.move((toMove[0], toMove[1]))
+            collision = newAsteroid.mask.overlap(mc.mask,((newAsteroid.posX + newAsteroid.height) - (mc.x+100), (newAsteroid.posY + newAsteroid.height)- (mc.y+100)))
+            touched = False
+            
     else:
-        pos = mc.x+ newAsteroid.height
-        if mc.x < 0:
-            pos = mc.x
-        newAsteroid.draw()
-        newAsteroid.move((pos, 700))
+        if len(movementPos) != 0:
+            # print(True)
+            if mc.x < 0:
+                toMove = mc.x
+            newAsteroid.draw()
+            newAsteroid.move((movementPos[0][0], movementPos[0][1]))
+
+            if newAsteroid.posX +20 >= movementPos[0][0]:
+                newAsteroid.delete()
+                asteroidPresent = False 
+            
+            collision = newAsteroid.mask.overlap(mc.mask,((newAsteroid.posX + newAsteroid.height) - (mc.x+100), (newAsteroid.posY + newAsteroid.height)- (mc.y+100)))
+    
 
     
-    mcRect = mc.returnRect()
-    asteroidRect = newAsteroid.returnRect()
-    collide = mcRect.colliderect(asteroidRect) 
 
-    if collide:
-        print('yes')
+    
+    if collision:
+        if touched == False:
+            healthNum -=10
+            touched = True
+    mcHealth = health.healthbar(healthNum)
+    mcHealth.drawHealth()
+    
     # Update the display
     pygame.display.flip()
 
