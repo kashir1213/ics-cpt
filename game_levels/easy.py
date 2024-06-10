@@ -5,6 +5,8 @@ import asteroids
 import people 
 import random
 import health
+import waterbottle
+
 # Initialize Pygame
 pygame.init()
 
@@ -26,13 +28,18 @@ backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Ca
 transformedBack = pygame.transform.scale(backgroundImage, (800,600))
 tiles = (size[1]/600) + 2
 scroll = 0
-
+start_ticks = pygame.time.get_ticks()
 asteroidPresent = False
 mc = people.mainCharacter(100, 450, (-20, 350, 700, 530))
 
 # Main Program Loop
 newAsteroid = asteroids.makeAsteroid()
 healthNum = 200
+hydrate = 200
+wata = waterbottle.bottle(700,(350, 530))
+waterPresent = False
+
+
 collision = None
 toMove =()
 movementPos = []
@@ -99,16 +106,44 @@ while not done:
             
             collision = newAsteroid.mask.overlap(mc.mask,((newAsteroid.posX + newAsteroid.height) - (mc.x+100), (newAsteroid.posY + newAsteroid.height)- (mc.y+100)))
     
+            
+        seconds = round((pygame.time.get_ticks()-start_ticks)/1000,2)
+        if round(seconds%1, 1) == 0:
+            hydrate -= 1
+        mcHydration = health.dehydration(hydrate)
+        mcHydration.drawHydration()
 
+
+    if waterPresent == False:
+        wata = waterbottle.bottle(700,(350, 530))
+        wata.move()
+        wata.draw()
+        waterPresent = True
+    else:
+        wata.move()
+        wata.draw()
     
+    if waterPresent == True and wata.posX <= -10:
+        waterPresent = False
+
+    collision2 = wata.mask.overlap(mc.mask,((wata.heigth + wata.posX) - mc.x + 100, (wata.width + wata.posY) - mc.y + 100))
+    print('water', str((wata.width + wata.posY)))
+    print('mc', str(mc.y + 100))
+    if collision2:
+        print(True)
+        # wata.delete()
+        # hydrate += 50
+           
 
     
     if collision:
         if touched == False:
             healthNum -=10
             touched = True
+            newAsteroid.delete()
     mcHealth = health.healthbar(healthNum)
     mcHealth.drawHealth()
+    
     
     # Update the display
     pygame.display.flip()

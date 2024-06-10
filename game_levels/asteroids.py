@@ -27,6 +27,8 @@ class makeAsteroid():
 
         self.imageShow = True
 
+        self.mask = None
+
     def move(self, toMove):
         moveX = toMove[0]
         moveY = toMove[1]
