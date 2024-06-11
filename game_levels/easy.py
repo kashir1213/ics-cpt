@@ -38,7 +38,7 @@ healthNum = 200
 hydrate = 200
 wata = waterbottle.bottle(700,(350, 530))
 waterPresent = False
-
+waterCollected = False
 
 collision = None
 toMove =()
@@ -119,23 +119,40 @@ while not done:
         wata.move()
         wata.draw()
         waterPresent = True
+        waterCollected = False
     else:
         wata.move()
         wata.draw()
+        waterCollected = False
     
     if waterPresent == True and wata.posX <= -10:
         waterPresent = False
 
-    collision2 = wata.mask.overlap(mc.mask,((wata.heigth + wata.posX) - mc.x + 100, (wata.width + wata.posY) - mc.y + 100))
-    print('water', str((wata.width + wata.posY)))
-    print('mc', str(mc.y + 100))
-    if collision2:
-        print(True)
-        # wata.delete()
-        # hydrate += 50
+   
+
+    collisonX = (abs((wata.heigth + wata.posX) - (mc.x + 100))) <= 40
+    collisonY = (abs((wata.width + wata.posY) - (mc.y + 100))) <= 40
+
+   
+    if collisonX and collisonY:
+        
+
+        while waterCollected == False:
+            wata.delete()
+            if hydrate < 200:
+                print(hydrate)
+                hydrate += 0.5
+                if hydrate > 200:
+                    hydrate = 200
+                print('\n')
+            waterCollected = True
+
+    if hydrate <=0:
+        hydrate = 0
+        healthNum -= 0.01
            
 
-    
+    #(wata.heigth + wata.posX) - mc.x + 100 <= 20 and 
     if collision:
         if touched == False:
             healthNum -=10
