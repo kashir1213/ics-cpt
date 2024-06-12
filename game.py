@@ -1,12 +1,8 @@
-## Kashir 
-## Kevin
-
 import pygame
-from game_levels import *
+from game_levels import easy
 
 # Initialize Pygame
 pygame.init()
-
 
 # Set up the drawing window
 size = (800, 600)
@@ -14,50 +10,26 @@ screen = pygame.display.set_mode(size)
 
 pygame.display.set_caption("My Animation")
 
-# Loop until the user clicks the close button.
 done = False
-
-# Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
 # Colors
 BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-BLUE = (0, 0, 255)
 BROWN = (153, 76, 0)
-GREY = (96, 96, 96)
-YELLOW = (255, 255, 0)
-DARKGREEN = (0, 51, 0)
-ORANGE = (255,128,0)
-
-
 
 # Main Program Loop
 while not done:
-    # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
-    ip = input('e: ')
-    if ip == 'yes':
-        easy.game1()
+    screen.fill(BLACK)
 
- 
-    # Draw a black rectangle (ground)
+    easy.game1(screen)
+
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
 
-    # Update the display
     pygame.display.flip()
-
-    # Limit frames per second
     clock.tick(60)
 
-# Quit Pygame
 pygame.quit()
-
-
