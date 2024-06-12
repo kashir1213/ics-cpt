@@ -25,6 +25,11 @@ while not done:
 
     screen.fill(BLACK)
 
+    backgroundImage = pygame.image.load('C:/Users/Kashir/OneDrive - Dufferin-Peel Catholic District School Board/ICS3UC/CPT/checkpoint1/background.png').convert()
+    transformedBack = pygame.transform.scale(backgroundImage, (800, 600))
+
+    pygame.draw.rect(screen,BLACK,(100,100,100,100))
+
     easy.game1(screen)
 
     pygame.draw.rect(screen, BROWN, [0, 400, 800, 200])
